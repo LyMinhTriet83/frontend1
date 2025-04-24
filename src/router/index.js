@@ -1,5 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
 import ContactBook from "@/views/ContactBook.vue";
+// Định nghĩa các route
 const routes = [
   {
     path: "/",
@@ -11,6 +12,13 @@ const routes = [
     name: "notfound",
     component: () => import("@/views/NotFound.vue"),
   },
+  {
+    path: "/contacts/:id",
+    name: "contact.edit",
+    component: () => import("@/views/ContactEdit.vue"),
+    props: true, // Truyền các biến trong $route.params vào làm props
+  },
+  // route đến thêm liên hệ mới
 ];
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
